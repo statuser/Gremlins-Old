@@ -1,0 +1,83 @@
+---
+title: "JagsComp"
+author: "John Howell"
+date: "8/13/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This model ran for 50,000 iterations without sign constraints on the price.  The biggest difference between the model and the JAGS code is the priors.  This uses a Gamma prior for the $\lambda$ parameter with a mean of 25.  For the runs that I have done so far, the prior is dominating.  It requires a large number of tasks for the prior to not have significant impace on the value of $\lambda$.
+
+```{r include=FALSE}
+library(tidyverse)
+packageOut <- read_csv("packageOutput.csv")
+jagsCode <- read_delim("gremlin_results_JAGS.txt", ";")
+combinedData <- bind_cols(packageOut, jagsCode)
+```
+
+## Package Results
+
+
+The distribution of the probability of belonging to the "Gremlins" segment:
+```{r echo=FALSE, fig.cap = "Package Probability of being a Gremlin"}
+ggplot(packageOut, aes(segMem)) + geom_histogram(bins = 20)
+```
+
+### JAGS Probability of Gremlin
+```{r echo=FALSE,fig.cap="JAGS Logit Probability of being a Gremlin"}
+ggplot(jagsCode, aes(logit)) + geom_histogram(bins=20)
+```
+### Comparison of the two models
+```{r echo=FALSE}
+ggplot(combinedData, aes(logit, segMem)) + geom_point() + labs(x="JAGS", y = "Package")
+```
+
+The segment sizes for the package. (This is compyuted form the aggregate membership probablities)
+```{r}
+table(packageOut$segLabel)
+table(packageOut$segLabel)/501
+```
+For the Jags Code the sizes of the groups are:
+
+```{r}
+table(jagsCode$logit_max)
+table(jagsCode$logit_max)/501
+```
+
+
+The JAGS code and the Package Code have a high correspondence between segment membership probabilities.
+
+```{r}
+cor(jagsCode$logit, packageOut$segMem)
+```
+
+We also can look at the hit rates
+
+```{r}
+cor(jagsCode$pm_outhit_logit, packageOut$outOfSampleHitRates)
+```
+the correlation between hit rates is not as strong.  There is a scaling issue here and it might be due to differences in $\lambda.  I don't corrently have this data for the JAGS code so I can't compare the other parameter values.
+
+### Comparison of JAGS and Package Probabilities
+```{r echo=FALSE}
+ggplot(jagsCode, aes(pm_outhit_logit, logit, color = logit_max)) + geom_point() + labs(x = "Out of Sample Hit Rate", y = "Probability of Gremlin", title = "JAGS Logit")
+ggplot(packageOut, aes(outOfSampleHitRates, segMem, color = segLabel)) + geom_point() + labs(x = "Out of Sample Hit Rate", y = "Probability of Gremlin", title ="Package Logit Model")
+
+ggplot(jagsCode, aes(pm_outhit_logit, logit, color="JAGS")) + geom_point() + labs(x = "Out of Sample Hit Rate", y = "Probability of Gremlin") + geom_point(data = packageOut, aes(outOfSampleHitRates, segMem, color="Package")) + scale_color_manual("", breaks = c("JAGS", "Package"), values = c("red", "blue"))
+
+
+ggplot(combinedData, aes(pm_outhit_logit, outOfSampleHitRates)) + geom_point() + labs(x = "Jags", y = "Package")
+```
+
+### Insample Hit Rates
+```{r echo=FALSE}
+ggplot(packageOut, aes(inSampleHitRates, segMem, color=segLabel)) + geom_point() + labs(x = "Insample Hit rates", y = "Probability of Gremlin")
+```
+
+### Conclusions
+The hit rate comparison is very difficult as there is only 2 holdout tasks.  Using more holdout tasks causes problems since we don't have enough data to estimate the model and we want to use as much information as possible.  It might be possible to run a cross validation task where we hold out 2 tasks at a time and get more stability in the hit rate estimates for the Info Rich segment.  As it is we are sometimes just getting unlucky with the tasks leading to high variablity in the hit rates.
