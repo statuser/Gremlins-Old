@@ -1,0 +1,19 @@
+Package: gremlins
+Type: Package
+Title: Estimate \"Gremlins In The Data\" Model
+Version: 0.1.0
+Authors@R: c(person("John", "Howell", email="john_howell@byu.edu", role =  c("aut", "cre")),
+    person("Porter", "Jenkins", "", role=c("ctb")))
+Maintainer: John Howell <john_howell@byu.edu>
+Description: The model in "Gremlins in the Data" seeks to identify
+    research subjects that provide low information in a heterogeneous
+    multinomial logit model.  This is especially useful for conjoint
+    analysis studies where survey respondents may answer randomly rather
+    than pay careful attention to the task.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: MASS
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
