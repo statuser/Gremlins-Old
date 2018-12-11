@@ -1,2 +1,5 @@
 inst/doc
 *.RData
+.Rhistory
+.Rproj.user
+.DS_Store
