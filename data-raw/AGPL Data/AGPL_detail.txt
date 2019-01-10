@@ -1,0 +1,149 @@
+﻿Attributes:
+
+-- Input Planning Assistance --
+1. Provides planning assistance for<br>seed variety/trait selection
+2. Provides planning assistance for<br>seed variety/trait selection<br> <u>and</u> fungicides
+
+-- Advertising --
+1. No ad sponsor
+2. Image 1
+3. Image 2
+4. Image 3
+
+-- Proximity to Data Points --
+1.Recommendations based on farms within 15-100 mile radius of yours 
+2. Recommendations based on farms within 30-100 mile radius of yours
+3. Recommendations based on farms within 60-100 mile radius of yours
+4. Recommendations based on farms within 100 mile radius of yours
+
+-- Mobile App availability --
+1. Access system via PC
+2. Access system via pC and mobile app
+
+-- Price --
+1. 1200 per year
+2. 1800 per year
+3. 2400 per year
+4. 3000 per year
+5. 4800 per year
+
+
+
+
+
+
+================================================================================
+Study Name: AGPL
+Date: Thursday, April 6, 2017 - 12:09:06 PM
+================================================================================
+
+
+================================================================================
+QUESTION LIST
+================================================================================
+Start (Questionnaire Access and Passwords)
+
+Intro (Text)
+Quota (Quota)
+
+Q1 (Select, 1 Data Field)
+
+Q2 (Numeric, 1 Data Field)
+
+Q3 (Grid, 5 Data Fields)
+
+Q4 (Grid, 10 Data Fields)
+
+Q5 (Select, 2 Data Fields)
+
+Q6 (Grid, 10 Data Fields)
+
+Q7 (Select, 2 Data Fields)
+
+Q8 (Grid, 7 Data Fields)
+
+Q9 (Select, 1 Data Field)
+
+Q10 (Select, 2 Data Fields)
+
+Q11 (Select, 1 Data Field)
+
+Q12 (Select, 2 Data Fields)
+
+Q13 (Select, 1 Data Field)
+
+Q13A (Numeric, 1 Data Field)
+
+Q13B (Select, 2 Data Fields)
+
+Q14 (Text)
+
+Q14A (Text)
+
+Q14B (Text)
+
+Q15 (Select, 1 Data Field)
+
+Q16 (Grid, 5 Data Fields)
+
+Q17 (Grid, 1 Data Field)
+
+Q18 (Grid, 1 Data Field)
+
+Q19 (Grid, 1 Data Field)
+
+Q20 (Text)
+
+Q20A (Text)
+
+Q20B (Text)
+
+Q21 (Select, 1 Data Field)
+
+Q22 (Text)
+
+Q23_Random1 (CBC Random Task)
+
+Q23_Random2 (CBC Random Task)
+
+Q23_Random3 (CBC Random Task)
+
+Q23_Random4 (CBC Random Task)
+
+Q23_Fixed1 (CBC Fixed Task)
+
+Q23_Random5 (CBC Random Task)
+
+Q23_Random6 (CBC Random Task)
+
+Q23_Random7 (CBC Random Task)
+
+Q23_Random8 (CBC Random Task)
+
+Q23_Fixed2 (CBC Fixed Task)
+
+Q23_Random9 (CBC Random Task)
+
+Q23_Random10 (CBC Random Task)
+
+Q23_Random11 (CBC Random Task)
+
+Q23_Random12 (CBC Random Task)
+
+Q24 (Ranking, 7 Data Fields)
+
+Q25 (Grid, 3 Data Fields)
+
+Q26 (Select, 2 Data Fields)
+
+Q27 (Select, 1 Data Field)
+
+Q27A (Select, 1 Data Field)
+
+Q28 (Grid, 9 Data Fields)
+
+Thankyou (Terminate / Link)
+
+Sorry (Terminate / Link)
+
+SorryQuota (Terminate / Link)
