@@ -95,7 +95,7 @@ estimateGremlinsMixtureModel <- function(data, design, R, Priors = NULL, nSegmen
     # Can we run a standard MNL model and then cluster separately on the fit for lambda segments
     # and the cluster on the betas for the regular model.
 
-    startingValues = findStartingValues()
+    #startingValues = findStartingValues()
 
 
     slopeCov <- array(double(gremlinsEnv$nBetaSegments*gremlinsEnv$nParams*gremlinsEnv$nParams),
